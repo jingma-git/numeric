@@ -1,0 +1,21 @@
+function sol = newton(f, df, x0, tol)
+x = x0;
+iter = 0;
+while 1
+    xi = x;
+    f_prime = df(x);
+    x = x - f(x)/ f_prime;
+%     sprintf("iter%d %12f %12f\n", iter, xi, x)
+    a = -2:0.1:2;
+    lf = @(x) f_prime * x - f_prime * xi;
+    b = arrayfun(lf, a);
+    line(a, b);
+    iter = iter + 1;
+    if abs(x-xi) < tol
+        break
+    end
+    if iter > 100
+        break
+    end
+end
+sol = x;
