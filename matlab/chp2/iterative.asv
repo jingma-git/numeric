@@ -10,16 +10,12 @@ k = 1; epn = 1; max_iter = 100; tol = 1e-6; w=0.1;
 
 tic
 while k < max_iter && epn > tol
-%     % steepest descent
-%     alpha = (p0' * r0) / (p0' * A * p0); 
-%     x1 = x0 + alpha * p0;
-%     r1 = b - A * x1;
-%     p1 = r1;
+    % steepest descent
     
     % cg
     if k <=1
         % select the quickest descending direction, alpha makes sure f(x) reaches mimimum at point x1
-        alpha = (p0' * r0) / (p0' * A * p0); 
+        alpha = (p0.' * r0) / (p0' * A * p0); 
         x1 = x0 + alpha * p0;
         r1 = b - A * x1;
     else

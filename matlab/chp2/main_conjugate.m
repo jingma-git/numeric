@@ -1,5 +1,5 @@
 max_iter = 50;
-n = 500;
+n = 15;
 A = diag(sqrt(1:n)) + diag(cos(1:(n-10)), 10) + diag(cos(1:(n-10)), -10);
 x_exact = ones(n, 1);
 b = A * x_exact;
