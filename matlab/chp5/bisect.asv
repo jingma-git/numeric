@@ -1,7 +1,0 @@
-% calculate the x0 coordinate that is the intersecion between f(x) and y=y0
-function x0=bisect(f, a, b, y0, tol)
-ya=f(a)-y0; yb=f(b)-y0; 
-while ya * yb < 0
-    c = (a+b)/2;
-    yc = f(c) - y0;
-end
