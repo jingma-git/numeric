@@ -13,4 +13,8 @@ t = 0:0.1:1;
 y = arrayfun(F, t);
 [t0, y0] = euler(f, [0, 1], 1, 10);
 [t1, y1] = trapezoid(f, [0, 1], 1, 10);
+[t2, y2] = rk4(f, [0, 1], 1, 10);
 plot(t,y,'r', t0,y0,'b', t1, y1, 'g')
+y0-y
+y1-y
+y2-y
