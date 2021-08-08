@@ -3,4 +3,7 @@
 
 % wavefw(0,1,0,1,20,40);
 % wavefw(0,1,0,1,20,20); % k=0.05: the explicit method is not stable
-wavefw(0,1,0,1,20,125);
+% wavefw(0,1,0,1,20,125);
+
+% laplacian(0, 1, 1, 2, 5, 5);
+poissonfem(0, 1, 1, 2, 5, 5);
