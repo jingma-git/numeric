@@ -39,10 +39,10 @@ int main()
     // cout << "x1=" << x1.transpose() << endl;
     cout << "err=" << err << endl;
 
-    MConjugateGradient cg;
-    VectorXd x2 = cg.solve(A, b);
-    double err2 = (x2 - x).norm();
-    // cout << "x2=" << x2.transpose() << endl;
-    cout << "err2=" << err2 << endl;
+    // MConjugateGradient cg;
+    // VectorXd x2 = cg.solve(A, b);
+    // double err2 = (x2 - x).norm();
+    // // cout << "x2=" << x2.transpose() << endl;
+    // cout << "err2=" << err2 << endl;
     return 0;
 }

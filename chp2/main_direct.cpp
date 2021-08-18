@@ -1,5 +1,7 @@
 #include "gaussian_elim.h"
 #include "lu.h"
+#include "cond.h"
+#include "cholesky.h"
 #include <iostream>
 using namespace std;
 
@@ -44,8 +46,24 @@ void test_data3(MatrixXd &A, VectorXd &b)
     b << 5, 0, 6;
 }
 
-int main()
-{
+void test_data4(MatrixXd& A, VectorXd& b){ // eg 4.2
+    A.resize(3, 2);
+    A << 1, -4,
+    2, 3,
+    2, 2;
+
+    b.resize(3, 1);
+    b << -3, 15, 9;
+}
+
+void test_data5(MatrixXd& A){ 
+    A.resize(3, 3);
+    A << 4,-2, 2,
+    -2, 2, -4,
+    2,-4, 11;
+}
+
+void test_pplu(){
     MatrixXd A;
     VectorXd b, x;
     // test_data0(A, b);
@@ -75,5 +93,29 @@ int main()
     x = pplu.solve(b);
 
     // https://learnaboutstructures.com/Bernoulli-Euler-Beam-Theory
+}
+
+void test_cond_number(){
+ MatrixXd A;
+ VectorXd b;
+
+ test_data4(A, b);
+ double cond_num= cond(A);
+ cout << "cond=" << cond_num << endl;
+ cout << "cond(A'*A)" << cond(A.transpose()*A) << endl;
+}
+
+void test_cholesky(){
+    Eigen::MatrixXd A;
+    test_data5(A);
+    M_LLT llt;
+    llt.compute(A);
+}
+
+int main()
+{
+    // test_pplu();
+    // test_cond_number();
+    test_cholesky();
     return 0;
 }

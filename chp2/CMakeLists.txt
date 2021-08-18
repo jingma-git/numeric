@@ -6,6 +6,6 @@ if(Eigen3_FOUND)
 message("-- Eigen found")
 endif()
 
-# add_executable(main main_direct.cpp)
-add_executable(main main_iterative.cpp)
+add_executable(main main_direct.cpp)
+# add_executable(main main_iterative.cpp)
 target_link_libraries(main Eigen3::Eigen)
